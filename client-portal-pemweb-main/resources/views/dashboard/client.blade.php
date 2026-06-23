@@ -75,9 +75,6 @@
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                     <div class="p-6 border-b border-slate-100 flex justify-between items-center">
                     <h3 class="font-bold text-lg text-slate-800">Daftar Proyek</h3>
-                    <a href="{{ route('projects.index') }}" class="text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors">
-                        Lihat Semua &rarr;
-                    </a>
                 </div>
 
                 @include('projects.partials.table')
