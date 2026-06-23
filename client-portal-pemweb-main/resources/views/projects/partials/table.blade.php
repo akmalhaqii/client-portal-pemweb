@@ -66,10 +66,9 @@
         @endforelse
     </tbody>
 </table>
+@endif
 
-@else
-
-@forelse ($projects as $project)
+@if (auth()->user()->isAdmin())
     <div class="border-b border-slate-100 last:border-0">
         <h1>HAYIIIII BIBUBBBBBB</h1>
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-6 py-4 bg-slate-50">
