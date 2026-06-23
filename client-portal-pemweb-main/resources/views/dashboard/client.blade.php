@@ -73,59 +73,14 @@
 
             <!-- My Projects -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center">
                     <h3 class="font-bold text-lg text-slate-800">Daftar Proyek</h3>
-                    <a href="{{ route('projects.index') }}" class="text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors">Lihat Semua &rarr;</a>
+                    <a href="{{ route('projects.index') }}" class="text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors">
+                        Lihat Semua &rarr;
+                    </a>
                 </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left">
-                        <thead class="bg-slate-50 text-slate-500">
-                            <tr>
-                                <th class="py-3 px-6 font-medium">Nama Proyek</th>
-                                <th class="py-3 px-6 font-medium">Status</th>
-                                <th class="py-3 px-6 font-medium">Deadline</th>
-                                <th class="py-3 px-6 font-medium">Progress</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100">
-                            @forelse ($myProjects as $project)
-                                <tr class="hover:bg-slate-50 transition-colors">
-                                    <td class="py-4 px-6">
-                                        <a href="{{ route('projects.show', $project) }}" class="font-medium text-slate-800 hover:text-indigo-600 transition-colors">{{ $project->name }}</a>
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        @php
-                                            $color = match($project->status) {
-                                                'completed' => 'bg-emerald-100 text-emerald-700',
-                                                'ongoing' => 'bg-indigo-100 text-indigo-700',
-                                                'cancelled' => 'bg-rose-100 text-rose-700',
-                                                default => 'bg-slate-100 text-slate-700',
-                                            };
-                                        @endphp
-                                        <span class="px-2.5 py-1 rounded-full text-xs font-medium {{ $color }}">
-                                            {{ ucfirst($project->status) }}
-                                        </span>
-                                    </td>
-                                    <td class="py-4 px-6 text-slate-600">
-                                        {{ $project->deadline?->format('d M Y') ?? '-' }}
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        <div class="flex items-center space-x-3">
-                                            <span class="text-slate-600 font-medium">{{ $project->latestProgress() }}%</span>
-                                            <div class="w-24 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                <div class="h-full bg-indigo-500 rounded-full" style="width: {{ $project->latestProgress() }}%"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="4" class="py-8 text-center text-slate-500">Belum ada proyek.</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
+
+                @include('projects.partials.table')
             </div>
 
         </div>
