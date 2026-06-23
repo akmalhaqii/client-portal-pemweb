@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-bold text-2xl bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text leading-tight">
-            Dashboard Saya
+            HAYYYYIIIIIIIIII CIWAAAAAKUUUU SAYANGKUUUUU
         </h2>
     </x-slot>
 
@@ -72,7 +72,7 @@
             </div>
 
             <!-- My Projects -->
-             <div class="border-b border-slate-100 last:border-0">
+             <!-- <div class="border-b border-slate-100 last:border-0">
                 <h1>HAYIIIII BIBUBBBBBB</h1>
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-6 py-4 bg-slate-50">
                     <div class="flex items-center gap-3">
@@ -106,7 +106,7 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                         </a>
                     </div>
-                </div>
+                </div> -->
 
         </div>
     </div>
