@@ -52,5 +52,12 @@ class DashboardController extends Controller
             'totalProjects', 'totalTasksDone', 'totalTasks',
             'totalInvoices', 'totalUnpaid', 'totalPaid', 'avgProgress', 'myProjects'
         ));
+
+        dd([
+            'user_id' => $user->id,
+            'role' => $user->role,
+            'isAdmin' => $user->isAdmin(),
+            'hasClientRelation' => $user->client ? true : false,
+        ]);
     }
 }
