@@ -43,6 +43,29 @@ class Project extends Model
     // progress terakhir (persentase) untuk ditampilkan cepat di list/dashboard
     public function latestProgress(): int
     {
-        return (int) ($this->progressReports()->latest()->value('percentage') ?? 0);
+        // Jika status proyek sudah selesai, progress pasti 100%
+        if ($this->status === 'completed') {
+            return 100;
+        }
+
+        // Jika status masih planning, progress pasti 0%
+        if ($this->status === 'planning') {
+            return 0;
+        }
+
+        // Ambil laporan progress manual terbaru jika ada
+        $latestReport = $this->progressReports()->latest()->value('percentage');
+        if ($latestReport !== null) {
+            return (int) $latestReport;
+        }
+
+        // Jika tidak ada laporan manual, hitung otomatis dari jumlah task yang selesai
+        $totalTasks = $this->tasks()->count();
+        if ($totalTasks === 0) {
+            return 0;
+        }
+
+        $completedTasks = $this->tasks()->where('status', 'done')->count();
+        return (int) round(($completedTasks / $totalTasks) * 100);
     }
 }
